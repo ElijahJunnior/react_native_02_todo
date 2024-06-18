@@ -1,4 +1,4 @@
-import { View, Text, Image, ImageBackground } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 
 import { styles } from "./styles";
 
@@ -10,7 +10,10 @@ export default function Home() {
       <View style={styles.header}>
         <Image source={logo} style={styles.header_logo} />
       </View>
-      <Text style={styles.helloText}>Hello World</Text>
+      <View style={styles.form}>
+        <TextInput style={styles.input} />
+        <TouchableOpacity style={styles.button} />
+      </View>
     </View>
   );
 }

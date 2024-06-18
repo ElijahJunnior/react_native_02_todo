@@ -16,7 +16,13 @@ export const styles = StyleSheet.create({
   header_logo: {
      width: 110, height: 32 
   },
-  helloText: {
-    color: colors.gray_100
+  form: {
+
+  },
+  input: {
+
+  },
+  button: {
+
   }
 })
