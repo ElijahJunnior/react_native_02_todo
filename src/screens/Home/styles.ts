@@ -1,23 +1,22 @@
 import { StyleSheet } from "react-native";
 
-
-// cores base 
-// blue-dark    #1E6F9F
-// blue         #4EA8DE
-// purple-dark  #5E60CE
-// purple       #8284FA
-
-// cores produto
-// gary-700     #0D0D0D
+import { colors } from "../../shared/colors_styles";
 
 export const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
-    backgroundColor: "#121212",
+    backgroundColor: colors.gray_600,
     flex: 1,
+  },
+  header: {    
+    alignItems: "center",
+    backgroundColor: colors.gray_700,
+    height: 173,
     justifyContent: "center"
   },
+  header_logo: {
+     width: 110, height: 32 
+  },
   helloText: {
-    color: "#cdcdcd"
+    color: colors.gray_100
   }
 })
