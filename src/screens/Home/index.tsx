@@ -33,7 +33,7 @@ export default function Home() {
           <InfoItem type="finished" value={0} />
         </View>
         <FlatList
-          data={[]}
+          data={["1", "2"]}
           keyExtractor={(key) => key}
           renderItem={({ item }) => <TaskItem />}
           ListEmptyComponent={() => (

@@ -1,6 +1,7 @@
 import { Text, TouchableOpacity, View } from "react-native";
 
 import { styles } from "./styles";
+import { ButtonDelete } from "../ButtonDelete";
 
 export function TaskItem() {
   return (
@@ -9,9 +10,7 @@ export function TaskItem() {
         <View></View>
       </TouchableOpacity>
       <Text></Text>
-      <TouchableOpacity>
-        <View></View>
-      </TouchableOpacity>
+      <ButtonDelete />
     </View>
   );
 }
