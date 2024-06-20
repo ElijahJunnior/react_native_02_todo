@@ -24,7 +24,6 @@ export function ButtonDelete({ onPress }: IProps) {
     >
       <Icons
         name="trash-2"
-        size={16}
         style={{
           fontSize: 16,
           color: pressed ? colors.danger : colors.gray_300,

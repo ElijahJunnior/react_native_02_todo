@@ -2,6 +2,7 @@ import { Text, TouchableOpacity, View } from "react-native";
 
 import { styles } from "./styles";
 import { ButtonDelete } from "../ButtonDelete";
+import { Checkbox } from "../Checkbox";
 
 export function TaskItem() {
   return (
@@ -11,6 +12,7 @@ export function TaskItem() {
       </TouchableOpacity>
       <Text></Text>
       <ButtonDelete />
+      <Checkbox />
     </View>
   );
 }
