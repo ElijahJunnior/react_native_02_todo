@@ -10,6 +10,7 @@ import {
 import { styles } from "./styles";
 import { InfoItem } from "../../components/InfoItem";
 import { TaskItem } from "../../components/TaskItem";
+import { ButtonAdd } from "../../components/ButtonAdd";
 
 const logo = require("../../../assets/logo.png");
 const addIcon = require("../../../assets/add.png");
@@ -24,9 +25,7 @@ export default function Home() {
       <View style={styles.main}>
         <View style={styles.form}>
           <TextInput style={styles.input} />
-          <TouchableOpacity style={styles.button}>
-            <Image source={addIcon} style={styles.buttonIcon} />
-          </TouchableOpacity>
+          <ButtonAdd />
         </View>
         <View style={styles.info_box}>
           <InfoItem type="created" value={0} />

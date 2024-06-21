@@ -33,9 +33,6 @@ export const styles = StyleSheet.create({
   input: {
 
   },
-  button: {
-
-  },  
   buttonIcon: {
     width: 16, 
     height: 16
