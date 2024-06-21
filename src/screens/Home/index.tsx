@@ -33,9 +33,16 @@ export default function Home() {
           <InfoItem type="finished" value={0} />
         </View>
         <FlatList
-          data={["1", "2"]}
+          data={["1", "2", "3", "5", "6", "7", "8"]}
+          horizontal={false}
           keyExtractor={(key) => key}
-          renderItem={({ item }) => <TaskItem />}
+          renderItem={({ item }) => (
+            <TaskItem
+              value="Integer urna interdum massa libero auctor neque turpis turpis semper.
+        Duis vel sed fames integer."
+            />
+          )}
+          showsVerticalScrollIndicator={false}
           ListEmptyComponent={() => (
             <View>
               <Image source={clipboardIcon} />
@@ -43,6 +50,7 @@ export default function Home() {
               <Text>Crie tarefas e organize seus itens a fazer</Text>
             </View>
           )}
+          style={{ direction: "ltr" }}
         />
       </View>
     </View>

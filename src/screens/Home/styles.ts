@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
   },
   main: {
     backgroundColor: colors.gray_600,
+    paddingHorizontal: 16, 
     flex: 1
   },
   info_box: {
@@ -36,5 +37,8 @@ export const styles = StyleSheet.create({
   buttonIcon: {
     width: 16, 
     height: 16
+  }, 
+  list: {
+
   }
 })

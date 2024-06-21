@@ -1,24 +1,34 @@
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, View } from "react-native";
 
 import { styles } from "./styles";
 import { ButtonDelete } from "../ButtonDelete";
 import { Checkbox } from "../Checkbox";
 import { useState } from "react";
 
-export function TaskItem() {
+interface IProps {
+  value: string;
+  onDelete?: () => void;
+}
+
+export function TaskItem({ value, onDelete }: IProps) {
   const [checked, setChecked] = useState(false);
 
+  const textStyle = checked
+    ? { ...styles.text, ...styles.finished_text }
+    : styles.text;
+
+  const containerStyle = checked
+    ? { ...styles.container, ...styles.finished_container }
+    : { ...styles.container };
+
   return (
-    <View>
-      <TouchableOpacity>
-        <View></View>
-      </TouchableOpacity>
-      <Text></Text>
-      <ButtonDelete />
+    <View style={containerStyle}>
       <Checkbox
         checked={checked}
         onPress={() => setChecked((preview) => !preview)}
       />
+      <Text style={textStyle}>{value}</Text>
+      <ButtonDelete onPress={onDelete} />
     </View>
   );
 }
