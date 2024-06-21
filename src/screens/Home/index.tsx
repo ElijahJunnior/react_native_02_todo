@@ -36,13 +36,10 @@ export default function Home() {
           data={["1", "2", "3", "5", "6", "7", "8"]}
           horizontal={false}
           keyExtractor={(key) => key}
-          renderItem={({ item }) => (
-            <TaskItem
-              value="Integer urna interdum massa libero auctor neque turpis turpis semper.
-        Duis vel sed fames integer."
-            />
-          )}
           showsVerticalScrollIndicator={false}
+          renderItem={({ item }) => (
+            <TaskItem value="Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer." />
+          )}
           ListEmptyComponent={() => (
             <View>
               <Image source={clipboardIcon} />

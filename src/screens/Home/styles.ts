@@ -23,7 +23,9 @@ export const styles = StyleSheet.create({
     flex: 1
   },
   info_box: {
-    flexDirection: "row"
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 20
   },
   form: {
     flexDirection: "row"
