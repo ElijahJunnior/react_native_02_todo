@@ -17,6 +17,7 @@ interface ITask {
 }
 
 export default function Home() {
+  const [inputValue, setInputValue] = useState("");
   const [tasks, setTasks] = useState<ITask[]>([]);
 
   return (
@@ -26,7 +27,10 @@ export default function Home() {
       </View>
       <View style={styles.main}>
         <View style={styles.form}>
-          <InputHome />
+          <InputHome
+            value={inputValue}
+            onChange={(text) => setInputValue(text)}
+          />
           <ButtonAdd />
         </View>
         <View style={styles.info_box}>

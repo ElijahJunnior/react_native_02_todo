@@ -28,7 +28,9 @@ export const styles = StyleSheet.create({
     marginBottom: 20
   },
   form: {
+    alignItems: "center",
     flexDirection: "row",
+    gap: 6,
     marginBottom: 32,
   },
   list: {
