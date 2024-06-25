@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     width: 52,
   },
   pressed_container: {
-    backgroundColor: colors.blue_dark, 
+    backgroundColor: colors.blue, 
   },
   icon: {
     color: colors.gray_200,

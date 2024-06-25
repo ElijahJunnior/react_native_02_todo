@@ -1,4 +1,9 @@
-import { TouchableHighlight } from "react-native";
+import {
+  TouchableHighlight,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 import Icons from "@expo/vector-icons/MaterialIcons";
 
 import { styles } from "./style";
@@ -16,13 +21,14 @@ export function ButtonAdd({ onPress }: IProps) {
     : { ...styles.container };
 
   return (
-    <TouchableHighlight
-      style={containerStyle}
+    <TouchableWithoutFeedback
       onPress={onPress}
       onPressIn={() => setIsPressed(true)}
       onPressOut={() => setIsPressed(false)}
     >
-      <Icons name="add-circle-outline" style={styles.icon} />
-    </TouchableHighlight>
+      <View style={containerStyle}>
+        <Icons name="add-circle-outline" style={styles.icon} />
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
