@@ -20,6 +20,34 @@ export default function Home() {
   const [inputValue, setInputValue] = useState("");
   const [tasks, setTasks] = useState<ITask[]>([]);
 
+  function createTask() {
+    if (inputValue === "") {
+      return;
+    }
+
+    const task: ITask = {
+      id: tasks.length + 1,
+      description: inputValue,
+      finished: false,
+    };
+
+    setTasks((cur) => [task, ...cur]);
+
+    setInputValue("");
+  }
+
+  function setTaskFinished(task_id: number, state: boolean) {
+    const this_tasks = [...tasks];
+
+    const task = this_tasks.find((cur) => cur.id === task_id);
+
+    if (task != null) {
+      task.finished = state;
+
+      setTasks(this_tasks);
+    }
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -31,19 +59,28 @@ export default function Home() {
             value={inputValue}
             onChange={(text) => setInputValue(text)}
           />
-          <ButtonAdd />
+          <ButtonAdd onPress={createTask} />
         </View>
         <View style={styles.info_box}>
-          <InfoItem type="created" value={0} />
-          <InfoItem type="finished" value={0} />
+          <InfoItem
+            type="created"
+            value={tasks.filter((cur) => !cur.finished).length}
+          />
+          <InfoItem
+            type="finished"
+            value={tasks.filter((cur) => cur.finished).length}
+          />
         </View>
         <FlatList
-          data={["1", "2", "3", "5", "6", "7", "8"]}
+          data={tasks}
           horizontal={false}
-          keyExtractor={(key) => key}
+          keyExtractor={(item) => item.id.toString()}
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => (
-            <TaskItem value="Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer." />
+            <TaskItem
+              value={item.description}
+              onFinishedChange={(state) => setTaskFinished(item.id, state)}
+            />
           )}
           ListEmptyComponent={() => (
             <View>
