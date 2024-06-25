@@ -1,22 +1,24 @@
-import {
-  View,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  FlatList,
-} from "react-native";
+import { View, Text, Image, FlatList } from "react-native";
 
 import { styles } from "./styles";
 import { InfoItem } from "../../components/InfoItem";
 import { TaskItem } from "../../components/TaskItem";
 import { ButtonAdd } from "../../components/ButtonAdd";
+import { InputHome } from "../../components/InputHome";
+import { useState } from "react";
 
 const logo = require("../../../assets/logo.png");
-const addIcon = require("../../../assets/add.png");
 const clipboardIcon = require("../../../assets/clipboard.png");
 
+interface ITask {
+  id: number;
+  description: string;
+  finished: boolean;
+}
+
 export default function Home() {
+  const [tasks, setTasks] = useState<ITask[]>([]);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -24,7 +26,7 @@ export default function Home() {
       </View>
       <View style={styles.main}>
         <View style={styles.form}>
-          <TextInput style={styles.input} />
+          <InputHome />
           <ButtonAdd />
         </View>
         <View style={styles.info_box}>

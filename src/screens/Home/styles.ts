@@ -28,15 +28,9 @@ export const styles = StyleSheet.create({
     marginBottom: 20
   },
   form: {
-    flexDirection: "row"
+    flexDirection: "row",
+    marginBottom: 32,
   },
-  input: {
-
-  },
-  buttonIcon: {
-    width: 16, 
-    height: 16
-  }, 
   list: {
 
   }
