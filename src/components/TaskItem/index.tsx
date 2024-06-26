@@ -1,18 +1,22 @@
 import { Text, View } from "react-native";
-
 import { styles } from "./styles";
 import { ButtonDelete } from "../ButtonDelete";
 import { Checkbox } from "../Checkbox";
-import { useState } from "react";
 
 interface IProps {
-  value: string;
+  description: string;
+  finished?: boolean;
   onDelete?: () => void;
   onFinishedChange?: (isFinished: boolean) => void;
 }
 
-export function TaskItem({ value, onDelete, onFinishedChange }: IProps) {
-  const [finished, setFinished] = useState(false);
+export function TaskItem({
+  description,
+  finished,
+  onDelete,
+  onFinishedChange,
+}: IProps) {
+  finished = finished != null ? finished : false;
 
   const textStyle = finished
     ? { ...styles.text, ...styles.finished_text }
@@ -28,14 +32,12 @@ export function TaskItem({ value, onDelete, onFinishedChange }: IProps) {
     if (onFinishedChange != null) {
       onFinishedChange(isFinished);
     }
-
-    setFinished(isFinished);
   }
 
   return (
     <View style={containerStyle}>
       <Checkbox checked={finished} onPress={handleCheckPress} />
-      <Text style={textStyle}>{value}</Text>
+      <Text style={textStyle}>{description}</Text>
       <ButtonDelete onPress={onDelete} />
     </View>
   );

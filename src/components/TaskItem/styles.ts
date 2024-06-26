@@ -20,7 +20,8 @@ export const styles = StyleSheet.create({
     fontFamily: "InterRegular",
     fontSize: 14,
     lineHeight: 19,
-    maxWidth: "75%",
+    flex: 1
+    // maxWidth: "75%",
   }, 
   finished_container: {
     borderColor: colors.gray_500

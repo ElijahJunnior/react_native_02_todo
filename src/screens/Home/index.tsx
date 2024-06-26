@@ -78,7 +78,8 @@ export default function Home() {
           showsVerticalScrollIndicator={false}
           renderItem={({ item }) => (
             <TaskItem
-              value={item.description}
+              description={item.description}
+              finished={item.finished}
               onFinishedChange={(state) => setTaskFinished(item.id, state)}
             />
           )}
