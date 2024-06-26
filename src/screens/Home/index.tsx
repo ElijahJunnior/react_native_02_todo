@@ -1,4 +1,4 @@
-import { View, Text, Image, FlatList } from "react-native";
+import { View, Image, FlatList } from "react-native";
 
 import { styles } from "./styles";
 import { InfoItem } from "../../components/InfoItem";
@@ -6,9 +6,9 @@ import { TaskItem } from "../../components/TaskItem";
 import { ButtonAdd } from "../../components/ButtonAdd";
 import { InputHome } from "../../components/InputHome";
 import { useState } from "react";
+import { ListEmptyItem } from "../../components/ListEmptyItem";
 
 const logo = require("../../../assets/logo.png");
-const clipboardIcon = require("../../../assets/clipboard.png");
 
 interface ITask {
   id: number;
@@ -94,13 +94,7 @@ export default function Home() {
               onDelete={() => deleteTask(item.id)}
             />
           )}
-          ListEmptyComponent={() => (
-            <View>
-              <Image source={clipboardIcon} />
-              <Text>Você ainda não tem tarefas cadastradas</Text>
-              <Text>Crie tarefas e organize seus itens a fazer</Text>
-            </View>
-          )}
+          ListEmptyComponent={ListEmptyItem}
           style={{ direction: "ltr" }}
         />
       </View>
