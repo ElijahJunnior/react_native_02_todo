@@ -48,6 +48,16 @@ export default function Home() {
     }
   }
 
+  function deleteTask(task_id: number) {
+    const this_tasks = [...tasks];
+
+    const ind_task = tasks.findIndex((cur) => cur.id === task_id);
+
+    this_tasks.splice(ind_task);
+
+    setTasks(this_tasks);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -81,6 +91,7 @@ export default function Home() {
               description={item.description}
               finished={item.finished}
               onFinishedChange={(state) => setTaskFinished(item.id, state)}
+              onDelete={() => deleteTask(item.id)}
             />
           )}
           ListEmptyComponent={() => (
