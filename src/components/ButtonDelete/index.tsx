@@ -1,8 +1,7 @@
-import { TouchableHighlight } from "react-native";
+import { TouchableWithoutFeedback, View } from "react-native";
 import { styles } from "./styles";
 
 import Icons from "@expo/vector-icons/Feather";
-import { colors } from "../../shared/colors_styles";
 import { useState } from "react";
 
 interface IProps {
@@ -12,23 +11,25 @@ interface IProps {
 export function ButtonDelete({ onPress }: IProps) {
   const [pressed, setPressed] = useState(false);
 
+  const container_style = {
+    ...styles.container,
+    ...(pressed ? styles.container_pressed : {}),
+  };
+
+  const icon_style = {
+    ...styles.icon,
+    ...(pressed ? styles.icon_pressed : {}),
+  };
+
   return (
-    <TouchableHighlight
+    <TouchableWithoutFeedback
       onPress={onPress}
-      style={{
-        ...styles.container,
-        backgroundColor: pressed ? colors.gray_400 : "transparent",
-      }}
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
     >
-      <Icons
-        name="trash-2"
-        style={{
-          fontSize: 16,
-          color: pressed ? colors.danger : colors.gray_300,
-        }}
-      />
-    </TouchableHighlight>
+      <View style={container_style}>
+        <Icons name="trash-2" style={icon_style} />
+      </View>
+    </TouchableWithoutFeedback>
   );
 }

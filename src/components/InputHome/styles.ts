@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     height: 54,
     lineHeight: 20,
-    padding: 16
+    padding: 16,
   }, 
   focused_input: { 
     borderColor: colors.purple_dark    
