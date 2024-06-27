@@ -14,26 +14,29 @@ export const styles = StyleSheet.create({
     marginTop: 24,    
   },
   header_logo: {
-     width: 110, 
-     height: 32 
+    height: 32,
+    width: 110, 
   },
   main: {
     backgroundColor: colors.gray_600,
-    paddingHorizontal: 16, 
-    flex: 1
+    flex: 1,
+    paddingHorizontal: 16,
+    position: "relative"
+  },
+  form: {
+    alignItems: "center",
+    flexDirection: "row",
+    gap: 6,
+    marginBottom: 5,
+    position: "relative",
+    top: -27
   },
   info_box: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: 20
   },
-  form: {
-    alignItems: "center",
-    flexDirection: "row",
-    gap: 6,
-    marginBottom: 32,
-  },
   list: {
-
+    direction: "ltr" 
   }
 })

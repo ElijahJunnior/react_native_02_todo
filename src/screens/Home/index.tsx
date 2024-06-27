@@ -95,7 +95,7 @@ export default function Home() {
             />
           )}
           ListEmptyComponent={ListEmptyItem}
-          style={{ direction: "ltr" }}
+          style={styles.list}
         />
       </View>
     </View>
