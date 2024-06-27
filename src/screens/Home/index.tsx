@@ -39,10 +39,28 @@ export default function Home() {
   function setTaskFinished(task_id: number, state: boolean) {
     const this_tasks = [...tasks];
 
-    const task = this_tasks.find((cur) => cur.id === task_id);
+    const task_index = this_tasks.findIndex((cur) => cur.id === task_id);
 
-    if (task != null) {
-      task.finished = state;
+    if (task_index >= 0) {
+      if (this_tasks.length === 1) {
+        this_tasks[task_index].finished = state;
+      } else {
+        const task = this_tasks.splice(task_index, 1)[0];
+
+        task.finished = state;
+
+        if (state) {
+          const finished_index = this_tasks.findIndex((cur) => cur.finished);
+
+          if (finished_index < 0) {
+            this_tasks.push(task);
+          } else {
+            this_tasks.splice(finished_index, 0, task);
+          }
+        } else {
+          this_tasks.unshift(task);
+        }
+      }
 
       setTasks(this_tasks);
     }
